@@ -6,7 +6,6 @@
   --bg-2:      #111111;
   --bg-3:      #1a1a1a;
   --accent:    #2B8FE0;
-  --accent-2:  #1a7bd0;
   --text:      #ffffff;
   --text-muted:#888888;
   --border:    #222222;
@@ -287,7 +286,6 @@ em { font-style: italic; color: var(--accent); }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
   color: var(--text-muted);
   font-size: 14px;
   font-weight: 600;
@@ -332,7 +330,6 @@ em { font-style: italic; color: var(--accent); }
   letter-spacing: 3px;
   color: var(--text-muted);
   text-transform: uppercase;
-  padding-right: 0;
 }
 
 @keyframes marquee-scroll {
@@ -853,4 +850,15 @@ em { font-style: italic; color: var(--accent); }
   .kontakt__form { max-width: 100%; }
   .footer__big-text { letter-spacing: -2px; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ─── ACCESSIBILITY: reduce motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .clients-marquee { animation: none; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }

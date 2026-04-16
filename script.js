@@ -3,18 +3,28 @@ const navbar = document.getElementById('navbar');
 const burgerBtn = document.getElementById('burgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
+if (navbar) {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
 
-burgerBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
+if (burgerBtn && mobileMenu) {
+  burgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
 
-// Zamknij mobile menu po kliknięciu linku
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+}
 
 // ─── STATS: animowane liczniki ───
 function animateCounter(el) {
@@ -65,7 +75,7 @@ if (carousel && prevBtn && nextBtn) {
 
 // ─── SCROLL REVEAL ───
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       // Staggered delay dla elementów w tej samej sekcji
       const siblings = entry.target.parentElement.querySelectorAll('.reveal');
