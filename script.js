@@ -62,3 +62,23 @@ if (carousel && prevBtn && nextBtn) {
     carousel.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
   });
 }
+
+// ─── SCROLL REVEAL ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Staggered delay dla elementów w tej samej sekcji
+      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+      let delay = 0;
+      siblings.forEach((el, idx) => {
+        if (el === entry.target) delay = idx * 80;
+      });
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
