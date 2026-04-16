@@ -45,3 +45,20 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.stats__number').forEach(el => counterObserver.observe(el));
+
+// ─── VIDEO CAROUSEL: strzałki ───
+const carousel = document.getElementById('videoCarousel');
+const prevBtn  = document.getElementById('carouselPrev');
+const nextBtn  = document.getElementById('carouselNext');
+
+if (carousel && prevBtn && nextBtn) {
+  const scrollAmount = () => carousel.querySelector('.video-card').offsetWidth + 16;
+
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+  });
+}
