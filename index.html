@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Damian Sadło — Montażysta Video</title>
+  <meta name="description" content="Buduję Twój autorytet przez content, który sprzedaje. Montaż wideo + strategia contentowa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#" class="navbar__logo">
+        <img src="assets/Logo.png" alt="DAMED" class="navbar__logo-img" />
+        <span class="navbar__logo-text">DAMED</span>
+      </a>
+      <ul class="navbar__links">
+        <li><a href="#realizacje">Realizacje</a></li>
+        <li><a href="#proces">Proces</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="btn btn--primary navbar__cta">Napisz do mnie</a>
+      <button class="navbar__burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="navbar__mobile" id="mobileMenu">
+      <a href="#realizacje">Realizacje</a>
+      <a href="#proces">Proces</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="btn btn--primary">Napisz do mnie</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__inner container">
+      <div class="hero__badge">Montażysta Video · Strateg Contentowy</div>
+      <h1 class="hero__heading">Buduję Twój autorytet<br />przez content, który <em>sprzedaje.</em></h1>
+      <p class="hero__sub">Projektuję treści, które budują niepodważalną pozycję lidera w Twojej branży.</p>
+      <div class="hero__actions">
+        <a href="#kontakt" class="btn btn--primary btn--lg">Napisz do mnie</a>
+        <a href="#realizacje" class="btn btn--ghost btn--lg">Zobacz realizacje</a>
+      </div>
+      <div class="hero__showreel">
+        <div class="hero__showreel-placeholder">
+          <span class="hero__showreel-icon">▶</span>
+          <span>SHOWREEL — wkrótce</span>
+        </div>
+      </div>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <span>SHORT FORM VIDEO · REELS · TIKTOK · YOUTUBE · STRATEGIA CONTENTU · MONTAŻ · SHORT FORM VIDEO · REELS · TIKTOK · YOUTUBE · STRATEGIA CONTENTU · MONTAŻ ·&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATYSTYKI -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stats__item reveal">
+          <span class="stats__number" data-target="40" data-suffix="M+">0</span>
+          <span class="stats__label">Wyświetleń wygenerowanych</span>
+        </div>
+        <div class="stats__divider"></div>
+        <div class="stats__item reveal">
+          <span class="stats__number" data-target="1000" data-suffix="+">0</span>
+          <span class="stats__label">Sprzedaży wygenerowanych dla klientów</span>
+        </div>
+        <div class="stats__divider"></div>
+        <div class="stats__item reveal">
+          <span class="stats__number" data-target="4" data-suffix="+">0</span>
+          <span class="stats__label">Lata doświadczenia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REALIZACJE -->
+  <section class="realizacje" id="realizacje">
+    <div class="container">
+      <p class="section-label reveal">Realizacje</p>
+      <h2 class="section-heading reveal">Zaufali mi</h2>
+    </div>
+    <!-- Marquee klientów -->
+    <div class="clients-marquee-wrap">
+      <div class="clients-marquee">
+        <div class="clients-marquee__item"><span>lalahorosz</span><small>124 tys. obserwujących</small></div>
+        <div class="clients-marquee__item"><span>wyjdzdoswiata</span><small>3,7 tys. obserwujących</small></div>
+        <div class="clients-marquee__item"><span>Marketing HERO</span><small>17,7 tys. subskrybentów</small></div>
+        <div class="clients-marquee__item"><span>lecenawakacje.pl</span><small>17,5 tys. obserwujących</small></div>
+        <div class="clients-marquee__item"><span>lalahorosz</span><small>124 tys. obserwujących</small></div>
+        <div class="clients-marquee__item"><span>wyjdzdoswiata</span><small>3,7 tys. obserwujących</small></div>
+        <div class="clients-marquee__item"><span>Marketing HERO</span><small>17,7 tys. subskrybentów</small></div>
+        <div class="clients-marquee__item"><span>lecenawakacje.pl</span><small>17,5 tys. obserwujących</small></div>
+      </div>
+    </div>
+    <!-- Karuzela video -->
+    <div class="video-carousel-wrap">
+      <button class="carousel-arrow carousel-arrow--left" id="carouselPrev" aria-label="Poprzednie">&#8592;</button>
+      <div class="video-carousel" id="videoCarousel">
+        <div class="video-card reveal">
+          <div class="video-card__thumb">
+            <a href="https://www.youtube.com/shorts/gRyYbjvCSIg" target="_blank" rel="noopener" class="video-card__link">
+              <div class="video-card__play">▶</div>
+              <div class="video-card__overlay"><span>Nauka. To Lubię</span><small>YouTube Shorts</small></div>
+            </a>
+          </div>
+          <p class="video-card__name">Nauka. To Lubię</p>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-card__thumb">
+            <a href="https://www.tiktok.com/@bezplanuvlog/video/7499474501663460630" target="_blank" rel="noopener" class="video-card__link">
+              <div class="video-card__play">▶</div>
+              <div class="video-card__overlay"><span>BezPlanu</span><small>TikTok</small></div>
+            </a>
+          </div>
+          <p class="video-card__name">BezPlanu</p>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-card__thumb">
+            <a href="https://www.instagram.com/reel/C-Z5l3QPmlB/" target="_blank" rel="noopener" class="video-card__link">
+              <div class="video-card__play">▶</div>
+              <div class="video-card__overlay"><span>Podróże Wojownika</span><small>Instagram Reels</small></div>
+            </a>
+          </div>
+          <p class="video-card__name">Podróże Wojownika</p>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-card__thumb">
+            <a href="https://www.youtube.com/shorts/U08aU-D08I8" target="_blank" rel="noopener" class="video-card__link">
+              <div class="video-card__play">▶</div>
+              <div class="video-card__overlay"><span>Nauka. To Lubię</span><small>YouTube Shorts</small></div>
+            </a>
+          </div>
+          <p class="video-card__name">Nauka. To Lubię #2</p>
+        </div>
+        <div class="video-card reveal">
+          <div class="video-card__thumb">
+            <a href="https://www.youtube.com/shorts/A8CXzBEvY-w" target="_blank" rel="noopener" class="video-card__link">
+              <div class="video-card__play">▶</div>
+              <div class="video-card__overlay"><span>Nauka. To Lubię</span><small>YouTube Shorts</small></div>
+            </a>
+          </div>
+          <p class="video-card__name">Nauka. To Lubię #3</p>
+        </div>
+      </div>
+      <button class="carousel-arrow carousel-arrow--right" id="carouselNext" aria-label="Następne">&#8594;</button>
+    </div>
+  </section>
+
+  <!-- PORÓWNANIE -->
+  <section class="porownanie" id="porownanie">
+    <div class="container">
+      <p class="section-label reveal">Dlaczego ja?</p>
+      <h2 class="section-heading reveal">Nie tylko klikam — <em>współtworzę</em></h2>
+      <div class="porownanie__grid reveal">
+        <div class="porownanie__col porownanie__col--bad">
+          <h3>Zwykły montażysta</h3>
+          <ul>
+            <li><span class="icon-no">✗</span> Montuje tylko to, co dostanie</li>
+            <li><span class="icon-no">✗</span> Nie interesuje go strategia</li>
+            <li><span class="icon-no">✗</span> Nie sugeruje zmian w skrypcie</li>
+            <li><span class="icon-no">✗</span> Oddaje plik i znika</li>
+            <li><span class="icon-no">✗</span> Nie rozumie algorytmów platform</li>
+          </ul>
+        </div>
+        <div class="porownanie__col porownanie__col--good">
+          <h3>Damian Sadło</h3>
+          <ul>
+            <li><span class="icon-yes">✓</span> Doradza strategicznie — zanim zaczniesz nagrywać</li>
+            <li><span class="icon-yes">✓</span> Rozumie trendy i algorytmy platform</li>
+            <li><span class="icon-yes">✓</span> Współpracuje przy skrypcie i koncepcji</li>
+            <li><span class="icon-yes">✓</span> Zostaje z Tobą na długą metę</li>
+            <li><span class="icon-yes">✓</span> Nie jest klikaczem — jest partnerem w tworzeniu</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCES -->
+  <section class="proces" id="proces">
+    <div class="container">
+      <p class="section-label reveal">Jak działam</p>
+      <h2 class="section-heading reveal">Prosty proces, <em>konkretne efekty</em></h2>
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <span class="timeline__num">01</span>
+            <h3>Brief & Analiza</h3>
+            <p>Poznaję Twoją markę, grupę docelową i cele. Analizuję konkurencję i to, co już działa w Twojej niszy.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <span class="timeline__num">02</span>
+            <h3>Strategia & Koncepcja</h3>
+            <p>Proponuję formy video, tematy i skrypty dopasowane do Twoich celów i algorytmów platform.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <span class="timeline__num">03</span>
+            <h3>Montaż</h3>
+            <p>Realizuję materiały z uwagą na storytelling, tempo i trendy. Każdy film ma zatrzymywać scroll.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <span class="timeline__num">04</span>
+            <h3>Korekty</h3>
+            <p>2 rundy poprawek w cenie. Wprowadzam zmiany sprawnie, bez zbędnych pytań.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <span class="timeline__num">05</span>
+            <h3>Dostawa & Optymalizacja</h3>
+            <p>Dostarczam gotowe pliki w odpowiednich formatach i rozdzielczościach. Daję wskazówki do dystrybucji.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="section-label reveal">FAQ</p>
+      <h2 class="section-heading reveal">Najczęstsze pytania</h2>
+      <div class="faq__grid">
+        <details class="faq__item reveal">
+          <summary>Jak wygląda proces współpracy?</summary>
+          <p>Zaczynamy od krótkiego briefu — poznaję Twoje cele i markę. Następnie proponuję koncepcję, realizuję montaż i dostarczam gotowe materiały z możliwością 2 rund poprawek.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Ile trwa realizacja pierwszych materiałów?</summary>
+          <p>Standardowo 3–5 dni roboczych od dostarczenia materiałów. Przy większej ilości filmów uzgadniamy harmonogram z wyprzedzeniem.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Na jakich platformach pracujesz?</summary>
+          <p>Specjalizuję się w krótkiej formie: Instagram Reels, TikTok, YouTube Shorts. Realizuję też długie formy na YouTube oraz materiały reklamowe.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Czy mogę zobaczyć materiały przed publikacją?</summary>
+          <p>Tak, zawsze. Każdy film trafia do Ciebie do akceptacji przed publikacją. Wprowadzam poprawki do momentu, gdy będziesz w pełni zadowolony.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Jaki budżet jest potrzebny na start?</summary>
+          <p>Wycena zależy od liczby filmów, ich długości i zakresu współpracy. Napisz do mnie — przygotuję ofertę dopasowaną do Twoich potrzeb.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="kontakt" id="kontakt">
+    <div class="container">
+      <p class="section-label reveal">Kontakt</p>
+      <h2 class="section-heading reveal">Gotowy na wzrost?</h2>
+      <p class="kontakt__sub reveal">Napisz do mnie — omówimy Twoją markę i pokażę, jak mogę Ci pomóc.</p>
+      <form class="kontakt__form reveal" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Twoje imię" required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Twój email" required />
+        </div>
+        <div class="form-group">
+          <textarea name="message" placeholder="Napisz kilka słów o swoim projekcie..." rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--lg btn--full">Wyślij wiadomość</button>
+      </form>
+      <div class="kontakt__social reveal">
+        <a href="https://www.instagram.com/damed_ig/" target="_blank" rel="noopener" class="kontakt__social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @damed_ig
+        </a>
+        <a href="mailto:damiansadlo82@gmail.com" class="kontakt__social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          damiansadlo82@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__big-text">DAMED</div>
+      <div class="footer__bottom">
+        <span>© 2026 Damian Sadło. Wszelkie prawa zastrzeżone.</span>
+        <div class="footer__icons">
+          <a href="https://www.instagram.com/damed_ig/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="mailto:damiansadlo82@gmail.com" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
