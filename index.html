@@ -51,12 +51,6 @@
         <a href="#kontakt" class="btn btn--primary btn--lg">Napisz do mnie</a>
         <a href="#realizacje" class="btn btn--ghost btn--lg">Zobacz realizacje</a>
       </div>
-      <div class="hero__showreel">
-        <div class="hero__showreel-placeholder">
-          <span class="hero__showreel-icon">▶</span>
-          <span>SHOWREEL — wkrótce</span>
-        </div>
-      </div>
     </div>
     <div class="marquee-wrap">
       <div class="marquee">
@@ -192,48 +186,52 @@
 
   <!-- PROCES -->
   <section class="proces" id="proces">
-    <div class="container">
+    <div class="container proces__header">
       <p class="section-label reveal">Jak działam</p>
       <h2 class="section-heading reveal">Prosty proces, <em>konkretne efekty</em></h2>
-      <div class="timeline">
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <span class="timeline__num">01</span>
+    </div>
+    <div class="proces__scroll-wrap" id="procesScrollWrap">
+      <div class="proces__sticky-panel">
+        <div class="proces__bg-num-clip">
+          <div class="proces__bg-num" id="procesBgNum">01</div>
+        </div>
+        <div class="proces__steps-area">
+          <div class="proces__step active" data-index="0">
+            <span class="proces__step-num">01 — 05</span>
             <h3>Brief & Analiza</h3>
             <p>Poznaję Twoją markę, grupę docelową i cele. Analizuję konkurencję i to, co już działa w Twojej niszy.</p>
           </div>
-        </div>
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <span class="timeline__num">02</span>
+          <div class="proces__step" data-index="1">
+            <span class="proces__step-num">02 — 05</span>
             <h3>Strategia & Koncepcja</h3>
             <p>Proponuję formy video, tematy i skrypty dopasowane do Twoich celów i algorytmów platform.</p>
           </div>
-        </div>
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <span class="timeline__num">03</span>
+          <div class="proces__step" data-index="2">
+            <span class="proces__step-num">03 — 05</span>
             <h3>Montaż</h3>
             <p>Realizuję materiały z uwagą na storytelling, tempo i trendy. Każdy film ma zatrzymywać scroll.</p>
           </div>
-        </div>
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <span class="timeline__num">04</span>
+          <div class="proces__step" data-index="3">
+            <span class="proces__step-num">04 — 05</span>
             <h3>Korekty</h3>
             <p>2 rundy poprawek w cenie. Wprowadzam zmiany sprawnie, bez zbędnych pytań.</p>
           </div>
-        </div>
-        <div class="timeline__item reveal">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <span class="timeline__num">05</span>
+          <div class="proces__step" data-index="4">
+            <span class="proces__step-num">05 — 05</span>
             <h3>Dostawa & Optymalizacja</h3>
             <p>Dostarczam gotowe pliki w odpowiednich formatach i rozdzielczościach. Daję wskazówki do dystrybucji.</p>
+          </div>
+        </div>
+        <div class="proces__footer">
+          <div class="proces__dots" id="procesDots">
+            <button class="proces__dot active" data-idx="0" aria-label="Krok 1: Brief"></button>
+            <button class="proces__dot" data-idx="1" aria-label="Krok 2: Strategia"></button>
+            <button class="proces__dot" data-idx="2" aria-label="Krok 3: Montaż"></button>
+            <button class="proces__dot" data-idx="3" aria-label="Krok 4: Korekty"></button>
+            <button class="proces__dot" data-idx="4" aria-label="Krok 5: Dostawa"></button>
+          </div>
+          <div class="proces__progress-bar">
+            <div class="proces__progress-fill" id="procesProgressFill"></div>
           </div>
         </div>
       </div>

@@ -73,6 +73,63 @@ if (carousel && prevBtn && nextBtn) {
   });
 }
 
+// ─── PROCES: sticky scroll ───
+const procesScrollWrap = document.getElementById('procesScrollWrap');
+const procesBgNum = document.getElementById('procesBgNum');
+const procesProgressFill = document.getElementById('procesProgressFill');
+const procesSteps = document.querySelectorAll('.proces__step');
+const procesDotBtns = document.querySelectorAll('.proces__dot');
+
+if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
+  let currentStepIdx = 0;
+  let lastScrollStepIdx = -1;
+
+  function goToStep(idx) {
+    if (idx === currentStepIdx) return;
+
+    const oldStep = procesSteps[currentStepIdx];
+    const newStep = procesSteps[idx];
+
+    oldStep.classList.remove('active');
+    oldStep.classList.add('exiting');
+    const captured = oldStep;
+    setTimeout(() => captured.classList.remove('exiting'), 450);
+
+    newStep.classList.add('active');
+    currentStepIdx = idx;
+
+    procesBgNum.classList.add('fading');
+    setTimeout(() => {
+      procesBgNum.textContent = String(idx + 1).padStart(2, '0');
+      procesBgNum.classList.remove('fading');
+    }, 220);
+
+    procesDotBtns.forEach((dot, i) => dot.classList.toggle('active', i === idx));
+    procesProgressFill.style.width = `${((idx + 1) / 5) * 100}%`;
+  }
+
+  window.addEventListener('scroll', () => {
+    const rect = procesScrollWrap.getBoundingClientRect();
+    const scrolled = -rect.top;
+    const total = procesScrollWrap.offsetHeight - window.innerHeight;
+    const progress = Math.max(0, Math.min(1, scrolled / total));
+    const stepIdx = Math.min(Math.floor(progress * 5), 4);
+    if (stepIdx !== lastScrollStepIdx) {
+      lastScrollStepIdx = stepIdx;
+      goToStep(stepIdx);
+    }
+  }, { passive: true });
+
+  procesDotBtns.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.idx, 10);
+      const stepHeight = procesScrollWrap.offsetHeight / 5;
+      const wrapTop = procesScrollWrap.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: wrapTop + idx * stepHeight, behavior: 'smooth' });
+    });
+  });
+}
+
 // ─── SCROLL REVEAL ───
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
