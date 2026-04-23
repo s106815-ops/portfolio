@@ -379,21 +379,46 @@ em { font-style: italic; color: var(--accent); }
 }
 
 .clients-marquee__item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
   flex-shrink: 0;
 }
 
-.clients-marquee__item span {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
+.client-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 8px 18px 8px 8px;
 }
 
-.clients-marquee__item small {
-  font-size: 11px;
+.client-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  display: block;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.client-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.client-stat {
+  font-size: 10px;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 /* Video carousel */
