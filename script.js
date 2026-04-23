@@ -83,6 +83,10 @@ if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
   let currentStepIdx = 0;
   let lastScrollStepIdx = -1;
 
+  procesNodes.forEach((node, i) => {
+    node.addEventListener('click', () => goToStep(i));
+  });
+
   function goToStep(idx) {
     if (idx === currentStepIdx) return;
 

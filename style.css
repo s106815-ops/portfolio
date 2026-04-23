@@ -374,7 +374,6 @@ em { font-style: italic; color: var(--accent); }
 .clients-marquee {
   display: flex;
   gap: 48px;
-  white-space: nowrap;
   animation: marquee-scroll 18s linear infinite;
 }
 
