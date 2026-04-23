@@ -88,7 +88,7 @@ if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
 
     // Instant-hide old step — kill transitions so exit has no animation
     const oldBlock = procesBlocks[currentStepIdx];
-    oldBlock.querySelectorAll('.proces__step-num, h3, p').forEach(el => {
+    oldBlock.querySelectorAll(':scope > .proces__step-num, :scope > h3, :scope > p').forEach(el => {
       el.style.transition = 'none';
     });
     oldBlock.classList.remove('active');
@@ -109,9 +109,10 @@ if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
 
     // Re-enable transitions on new block (clear any inline override), then activate
     const newBlock = procesBlocks[idx];
-    newBlock.querySelectorAll('.proces__step-num, h3, p').forEach(el => {
+    newBlock.querySelectorAll(':scope > .proces__step-num, :scope > h3, :scope > p').forEach(el => {
       el.style.transition = '';
     });
+    void newBlock.offsetHeight;
     newBlock.classList.add('active');
   }
 
