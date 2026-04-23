@@ -75,10 +75,9 @@ if (carousel && prevBtn && nextBtn) {
 
 // ─── PROCES: sticky scroll ───
 const procesScrollWrap = document.getElementById('procesScrollWrap');
-const procesBgNum = document.getElementById('procesBgNum');
-const procesProgressFill = document.getElementById('procesProgressFill');
-const procesSteps = document.querySelectorAll('.proces__step');
-const procesDotBtns = document.querySelectorAll('.proces__dot');
+const procesNodes = Array.from(document.querySelectorAll('.tl-node'));
+const procesLines = Array.from(document.querySelectorAll('.node-line'));
+const procesBlocks = Array.from(document.querySelectorAll('.step-block'));
 
 if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
   let currentStepIdx = 0;
@@ -87,25 +86,33 @@ if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
   function goToStep(idx) {
     if (idx === currentStepIdx) return;
 
-    const oldStep = procesSteps[currentStepIdx];
-    const newStep = procesSteps[idx];
+    // Instant-hide old step — kill transitions so exit has no animation
+    const oldBlock = procesBlocks[currentStepIdx];
+    oldBlock.querySelectorAll('.proces__step-num, h3, p').forEach(el => {
+      el.style.transition = 'none';
+    });
+    oldBlock.classList.remove('active');
 
-    oldStep.classList.remove('active');
-    oldStep.classList.add('exiting');
-    const captured = oldStep;
-    setTimeout(() => captured.classList.remove('exiting'), 450);
+    // Update nodes: active / done states
+    procesNodes.forEach((node, i) => {
+      node.classList.remove('active', 'done');
+      if (i < idx) node.classList.add('done');
+      if (i === idx) node.classList.add('active');
+    });
 
-    newStep.classList.add('active');
+    // Update lines: filled up to active node
+    procesLines.forEach((line, i) => {
+      line.classList.toggle('filled', i < idx);
+    });
+
     currentStepIdx = idx;
 
-    procesBgNum.classList.add('fading');
-    setTimeout(() => {
-      procesBgNum.textContent = String(idx + 1).padStart(2, '0');
-      procesBgNum.classList.remove('fading');
-    }, 220);
-
-    procesDotBtns.forEach((dot, i) => dot.classList.toggle('active', i === idx));
-    procesProgressFill.style.width = `${((idx + 1) / 5) * 100}%`;
+    // Re-enable transitions on new block (clear any inline override), then activate
+    const newBlock = procesBlocks[idx];
+    newBlock.querySelectorAll('.proces__step-num, h3, p').forEach(el => {
+      el.style.transition = '';
+    });
+    newBlock.classList.add('active');
   }
 
   window.addEventListener('scroll', () => {
@@ -119,15 +126,6 @@ if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
       goToStep(stepIdx);
     }
   }, { passive: true });
-
-  procesDotBtns.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      const idx = parseInt(dot.dataset.idx, 10);
-      const stepHeight = procesScrollWrap.offsetHeight / 5;
-      const wrapTop = procesScrollWrap.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: wrapTop + idx * stepHeight, behavior: 'smooth' });
-    });
-  });
 }
 
 // ─── SCROLL REVEAL ───
