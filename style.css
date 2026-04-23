@@ -629,7 +629,7 @@ em { font-style: italic; color: var(--accent); }
   justify-content: center;
   font-size: 9px;
   font-weight: 800;
-  color: #444;
+  color: var(--text-muted);
   flex-shrink: 0;
   transition: background 0.4s ease, border-color 0.4s ease,
               color 0.4s ease, box-shadow 0.4s ease;
@@ -964,6 +964,8 @@ em { font-style: italic; color: var(--accent); }
   .step-block.active .proces__step-num,
   .step-block.active h3,
   .step-block.active p {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
   .tl-node { transition: none; }
