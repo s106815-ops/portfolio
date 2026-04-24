@@ -196,3 +196,22 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ─── HERO REVEAL ───
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const lines = document.querySelectorAll('.hero__line');
+  const seq = [
+    { el: document.querySelector('.hero__badge'),   delay: 0   },
+    { el: lines[0],                                 delay: 150 },
+    { el: lines[1],                                 delay: 300 },
+    { el: document.querySelector('.hero__sub'),     delay: 480 },
+    { el: document.querySelector('.hero__actions'), delay: 630 },
+  ];
+
+  seq.forEach(({ el, delay }) => {
+    if (!el) return;
+    setTimeout(() => el.classList.add('hero--visible'), delay);
+  });
+})();
