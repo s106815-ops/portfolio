@@ -279,9 +279,7 @@ em { font-style: italic; color: var(--accent); }
   justify-content: center;
   padding-top: 68px;
   position: relative;
-}
-
-.hero {
+  overflow: hidden;
   background-image: radial-gradient(circle, rgba(43, 143, 224, 0.15) 1px, transparent 1px);
   background-size: 28px 28px;
 }
@@ -305,6 +303,7 @@ em { font-style: italic; color: var(--accent); }
   pointer-events: none;
   z-index: 0;
   animation: heroGlow 4s ease-in-out infinite;
+  will-change: opacity, transform;
 }
 
 @keyframes heroGlow {
