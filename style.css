@@ -1064,6 +1064,13 @@ em { font-style: italic; color: var(--accent); }
   line-height: 1;
   margin-bottom: 32px;
   user-select: none;
+  transition: color 0.4s ease, -webkit-text-stroke-color 0.4s ease;
+  -webkit-text-stroke: 2px transparent;
+}
+
+.footer__big-text:hover {
+  color: transparent;
+  -webkit-text-stroke-color: var(--accent);
 }
 
 .footer__bottom {
