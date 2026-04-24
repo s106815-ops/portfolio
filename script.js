@@ -85,6 +85,7 @@ function animateCounter(el) {
     if (current >= target) {
       el.textContent = target + suffix;
       clearInterval(timer);
+      el.classList.add('stats__number--glowing');
     } else {
       el.textContent = Math.floor(current) + suffix;
     }

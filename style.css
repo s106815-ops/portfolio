@@ -452,6 +452,23 @@ em { font-style: italic; color: var(--accent); }
   flex-shrink: 0;
 }
 
+.stats__number--glowing {
+  animation: statGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes statGlow {
+  0%, 100% {
+    text-shadow: 0 0 16px rgba(43, 143, 224, 0.4), 0 0 32px rgba(43, 143, 224, 0.15);
+  }
+  50% {
+    text-shadow: 0 0 28px rgba(43, 143, 224, 0.7), 0 0 56px rgba(43, 143, 224, 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stats__number--glowing { animation: none; }
+}
+
 @media (max-width: 768px) {
   .stats__grid { flex-direction: column; gap: 40px; }
   .stats__divider { width: 60px; height: 1px; }
