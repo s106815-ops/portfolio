@@ -717,6 +717,33 @@ em { font-style: italic; color: var(--accent); }
 .icon-no  { color: #ff4444; font-weight: 700; flex-shrink: 0; }
 .icon-yes { color: var(--accent); font-weight: 700; flex-shrink: 0; }
 
+/* Stagger reveal — stany startowe */
+.porownanie__col--bad li {
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.porownanie__col--good li {
+  opacity: 0;
+  transform: translateX(14px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.por-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .porownanie__col--bad li,
+  .porownanie__col--good li {
+    opacity: 1; transform: none; transition: none;
+  }
+}
+
 @media (max-width: 768px) {
   .porownanie__grid { grid-template-columns: 1fr; }
 }

@@ -200,6 +200,30 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
+// ─── PORÓWNANIE: staggered list ───
+(function () {
+  const grid = document.querySelector('.porownanie__grid');
+  if (!grid) return;
+
+  const badLis  = Array.from(grid.querySelectorAll('.porownanie__col--bad li'));
+  const goodLis = Array.from(grid.querySelectorAll('.porownanie__col--good li'));
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      badLis.forEach((li, i) => {
+        setTimeout(() => li.classList.add('por-visible'), i * 100);
+      });
+      goodLis.forEach((li, i) => {
+        setTimeout(() => li.classList.add('por-visible'), i * 100 + 60);
+      });
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  obs.observe(grid);
+})();
+
 // ─── HERO REVEAL ───
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
