@@ -133,7 +133,7 @@ em { font-style: italic; color: var(--accent); }
 
 /* ─── CURSOR ─── */
 @media (pointer: fine) {
-  body, a, button { cursor: none; }
+  body, a, button, input, textarea, select, label { cursor: none; }
 }
 
 #cursor-ring {

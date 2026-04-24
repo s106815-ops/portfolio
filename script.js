@@ -4,6 +4,7 @@
   const dot  = document.getElementById('cursor-dot');
   if (!ring || !dot) return;
   if (window.matchMedia('(pointer: coarse)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
   let visible = false;
@@ -33,9 +34,11 @@
   }
   tick();
 
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('cursor-ring--hover'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('cursor-ring--hover'));
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button')) ring.classList.add('cursor-ring--hover');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('a, button')) ring.classList.remove('cursor-ring--hover');
   });
 })();
 
