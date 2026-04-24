@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js');
+
 // ─── CUSTOM CURSOR ───
 (function () {
   const ring = document.getElementById('cursor-ring');
