@@ -242,3 +242,17 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     setTimeout(() => el.classList.add('hero--visible'), delay);
   });
 })();
+
+// ─── FAQ: smooth toggle ───
+document.querySelectorAll('.faq__item').forEach(item => {
+  const btn  = item.querySelector('.faq__summary');
+  const body = item.querySelector('.faq__body');
+  if (!btn || !body) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    body.style.maxHeight = isOpen ? '0' : body.scrollHeight + 'px';
+  });
+});
