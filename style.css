@@ -131,6 +131,49 @@ em { font-style: italic; color: var(--accent); }
   filter: blur(0);
 }
 
+/* ─── CURSOR ─── */
+@media (pointer: fine) {
+  body, a, button { cursor: none; }
+}
+
+#cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 28px; height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 1.5px solid rgba(43, 143, 224, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+#cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  margin: -3px 0 0 -3px;
+  background: #2B8FE0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#cursor-ring.cursor-ring--hover {
+  width: 44px; height: 44px;
+  margin: -22px 0 0 -22px;
+  border-color: rgba(43, 143, 224, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cursor-ring, #cursor-dot { display: none; }
+}
+
 /* ─── NAVBAR ─── */
 .navbar {
   position: fixed;

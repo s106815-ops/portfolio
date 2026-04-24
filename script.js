@@ -1,3 +1,44 @@
+// ─── CUSTOM CURSOR ───
+(function () {
+  const ring = document.getElementById('cursor-ring');
+  const dot  = document.getElementById('cursor-dot');
+  if (!ring || !dot) return;
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+  let visible = false;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    if (!visible) {
+      visible = true;
+      ring.style.opacity = '1';
+      dot.style.opacity  = '1';
+    }
+  });
+
+  document.addEventListener('mouseleave', () => {
+    ring.style.opacity = '0';
+    dot.style.opacity  = '0';
+    visible = false;
+  });
+
+  function tick() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('cursor-ring--hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('cursor-ring--hover'));
+  });
+})();
+
 // ─── NAVBAR: scroll effect + mobile menu ───
 const navbar = document.getElementById('navbar');
 const burgerBtn = document.getElementById('burgerBtn');
