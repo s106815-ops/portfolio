@@ -202,6 +202,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // ─── PORÓWNANIE: staggered list ───
 (function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const grid = document.querySelector('.porownanie__grid');
   if (!grid) return;
 

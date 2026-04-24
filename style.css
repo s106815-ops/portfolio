@@ -931,7 +931,6 @@ em { font-style: italic; color: var(--accent); }
 .faq__item {
   background: var(--bg-3);
   border-radius: var(--radius-sm);
-  overflow: hidden;
 }
 
 .faq__summary {
@@ -953,6 +952,11 @@ em { font-style: italic; color: var(--accent); }
 }
 
 .faq__summary:hover { color: var(--accent); }
+
+.faq__summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
 
 .faq__icon {
   font-size: 20px;
@@ -986,7 +990,6 @@ em { font-style: italic; color: var(--accent); }
 }
 
 @media (max-width: 768px) {
-  .faq { padding: 60px 0; }
   .faq__grid { grid-template-columns: 1fr; }
 }
 
