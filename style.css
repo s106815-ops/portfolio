@@ -760,7 +760,7 @@ em { font-style: italic; color: var(--accent); }
 }
 
 .proces__scroll-wrap {
-  height: calc(5 * 100vh);
+  height: 100vh;
   position: relative;
 }
 
@@ -914,6 +914,52 @@ em { font-style: italic; color: var(--accent); }
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.45s ease 0.18s, transform 0.45s ease 0.18s;
+}
+
+.proces__nav {
+  position: absolute;
+  bottom: 0;
+  left: 32px;
+  display: flex;
+  gap: 12px;
+}
+
+.proces__nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.proces__nav-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.proces__nav-btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.proces__nav-btn--primary:hover:not(:disabled) {
+  background: #1a7fd4;
+  border-color: #1a7fd4;
+  color: #fff;
+}
+
+.proces__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* ─── FAQ ─── */
@@ -1129,6 +1175,7 @@ em { font-style: italic; color: var(--accent); }
   }
 
   .nodes-col { display: none; }
+  .proces__nav { display: none; }
 
   .step-area {
     position: static;

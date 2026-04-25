@@ -126,58 +126,55 @@ const procesNodes = Array.from(document.querySelectorAll('.tl-node'));
 const procesLines = Array.from(document.querySelectorAll('.node-line'));
 const procesBlocks = Array.from(document.querySelectorAll('.step-block'));
 
-if (procesScrollWrap && window.matchMedia('(min-width: 769px)').matches) {
+if (procesScrollWrap) {
   let currentStepIdx = 0;
-  let lastScrollStepIdx = -1;
+  const prevBtn = document.getElementById('processPrev');
+  const nextBtn = document.getElementById('processNext');
+
+  function updateNavButtons() {
+    if (prevBtn) prevBtn.disabled = currentStepIdx === 0;
+    if (nextBtn) nextBtn.disabled = currentStepIdx === procesBlocks.length - 1;
+  }
 
   procesNodes.forEach((node, i) => {
     node.addEventListener('click', () => goToStep(i));
   });
 
+  if (prevBtn) prevBtn.addEventListener('click', () => goToStep(currentStepIdx - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goToStep(currentStepIdx + 1));
+
   function goToStep(idx) {
     if (idx === currentStepIdx) return;
 
-    // Instant-hide old step — kill transitions so exit has no animation
     const oldBlock = procesBlocks[currentStepIdx];
     oldBlock.querySelectorAll(':scope > .proces__step-num, :scope > h3, :scope > p').forEach(el => {
       el.style.transition = 'none';
     });
     oldBlock.classList.remove('active');
 
-    // Update nodes: active / done states
     procesNodes.forEach((node, i) => {
       node.classList.remove('active', 'done');
       if (i < idx) node.classList.add('done');
       if (i === idx) node.classList.add('active');
     });
 
-    // Update lines: filled up to active node
     procesLines.forEach((line, i) => {
       line.classList.toggle('filled', i < idx);
     });
 
     currentStepIdx = idx;
 
-    // Re-enable transitions on new block (clear any inline override), then activate
     const newBlock = procesBlocks[idx];
     newBlock.querySelectorAll(':scope > .proces__step-num, :scope > h3, :scope > p').forEach(el => {
       el.style.transition = '';
     });
     void newBlock.offsetHeight;
     newBlock.classList.add('active');
+
+    updateNavButtons();
   }
 
-  window.addEventListener('scroll', () => {
-    const rect = procesScrollWrap.getBoundingClientRect();
-    const scrolled = -rect.top;
-    const total = procesScrollWrap.offsetHeight - window.innerHeight;
-    const progress = Math.max(0, Math.min(1, scrolled / total));
-    const stepIdx = Math.min(Math.floor(progress * 5), 4);
-    if (stepIdx !== lastScrollStepIdx) {
-      lastScrollStepIdx = stepIdx;
-      goToStep(stepIdx);
-    }
-  }, { passive: true });
+  updateNavButtons();
 }
 
 // ─── SCROLL REVEAL ───
