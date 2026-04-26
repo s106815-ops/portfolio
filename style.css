@@ -472,7 +472,7 @@ em { font-style: italic; color: var(--accent); }
 }
 
 @media (max-width: 768px) {
-  .stats__grid { flex-direction: column; gap: 40px; }
+  .stats__grid { flex-direction: column; gap: 20px; }
   .stats__divider { width: 60px; height: 1px; }
 }
 
@@ -493,12 +493,12 @@ em { font-style: italic; color: var(--accent); }
 
 .clients-marquee {
   display: flex;
-  gap: 48px;
   animation: marquee-scroll 18s linear infinite;
 }
 
 .clients-marquee__item {
   flex-shrink: 0;
+  padding-right: 48px;
 }
 
 .client-pill {
@@ -1035,8 +1035,11 @@ em { font-style: italic; color: var(--accent); }
   margin: 0;
 }
 
+.faq__item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
 @media (max-width: 768px) {
   .faq__grid { grid-template-columns: 1fr; }
+  .faq__item:last-child:nth-child(odd) { grid-column: auto; }
 }
 
 /* ─── KONTAKT ─── */
@@ -1149,6 +1152,7 @@ em { font-style: italic; color: var(--accent); }
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .hero__inner { padding-top: 48px; padding-bottom: 48px; }
+  .hero__badge { font-size: 10px; letter-spacing: 1px; padding: 5px 12px; }
   .hero__actions { flex-direction: column; align-items: center; }
   .porownanie { padding: 60px 0; }
   .faq { padding: 60px 0; }
